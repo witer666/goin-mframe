@@ -19,7 +19,7 @@ type ControllerApi struct {
 
 func (ctlApi *ControllerApi) Init() {
 	ctlApi.Actions = map[string]func(c *gin.Context){
-		"post:/v1/api/user/list": func(c *gin.Context) {
+		"get:/v1/api/user/list": func(c *gin.Context) {
 			_actionList := api.NewActionUserList(c)
 			_actionList.Invoke(c)
 		},
