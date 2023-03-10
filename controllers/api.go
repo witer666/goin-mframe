@@ -23,16 +23,16 @@ func (ctlApi *ControllerApi) Init() {
 			_actionList := api.NewActionUserList(c)
 			_actionList.Invoke(c)
 		},
-		"get:/v1/api/user/create": func(c *gin.Context) {
-			_actionCreate := api.ActionUserCreate{}
+		"post:/v1/api/user/create": func(c *gin.Context) {
+			_actionCreate := api.NewActionUserCreate(c)
 			_actionCreate.Invoke(c)
 		},
-		"get:/v1/api/user/update": func(c *gin.Context) {
-			_actionUpdate := api.ActionUserUpdate{}
+		"post:/v1/api/user/update": func(c *gin.Context) {
+			_actionUpdate := api.NewActionUserUpdate(c)
 			_actionUpdate.Invoke(c)
 		},
 		"get:/v1/api/user/view": func(c *gin.Context) {
-			_actionView := api.ActionUserView{}
+			_actionView := api.NewActionUserView(c)
 			_actionView.Invoke(c)
 		},
 	}

@@ -18,9 +18,9 @@ type Service_Page_Users struct {
  * @return  dao.Dao_Users
  *
  */
-func (pUser *Service_Page_Users) GetUserList(conds ...interface{}) *[]dao.Dao_Users {
+func (pUser *Service_Page_Users) GetUserList(offset int, limit int, conds ...interface{}) *[]dao.Dao_Users {
 	dUser := data.Service_Data_Users{}
-	m := dUser.GetUserList(0, 3, "id DESC", conds...)
+	m := dUser.GetUserList(offset, limit, "id DESC", conds...)
 	return m
 }
 

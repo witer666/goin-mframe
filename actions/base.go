@@ -7,6 +7,10 @@ import (
 	"github.com/gin-gonic/utils"
 )
 
+type ActionBase struct {
+	Params map[string][]string
+}
+
 /**
  *
  * 多种请求方式请求参数处理

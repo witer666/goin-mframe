@@ -1,6 +1,8 @@
 package data
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/models/dao"
 )
 
@@ -12,6 +14,7 @@ func (dUser *Service_Data_Users) GetUserList(offset int, limit int, order interf
 	m := new([]dao.Dao_Users)
 	err := mdb.GetList(&m, offset, limit, order, conds...)
 	if err != nil {
+		fmt.Println(err.Error())
 		return m
 	}
 
@@ -37,6 +40,7 @@ func (dUser *Service_Data_Users) GetUser(conds ...interface{}) *dao.Dao_Users {
 	m := new(dao.Dao_Users)
 	err := mdb.GetOnly(m, conds)
 	if err != nil {
+		fmt.Println(err.Error())
 		return m
 	}
 
