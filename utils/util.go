@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"math/rand"
 	"net/http"
+	"reflect"
 	"strconv"
 	"time"
 
@@ -143,4 +144,32 @@ func TypeInterface2String(value interface{}) string {
 		newValue = string(jsonValue)
 	}
 	return newValue
+}
+
+/**
+ *
+ * 反射获取变量类型
+ *
+ * @author  linux_chen<linux_chen@163.com>
+ * @version 2023/03/07 23:19:35
+ * @param	value interface
+ * @return  string
+ *
+ */
+func GetValueType(value any) string {
+	return reflect.ValueOf(value).Kind().String()
+}
+
+/**
+ *
+ * 数字日期
+ *
+ * @author  linux_chen<linux_chen@163.com>
+ * @version 2023/03/07 23:19:35
+ * @param	void
+ * @return  string
+ *
+ */
+func CurrentNumericDate() string {
+	return time.Now().Format("2006010215")
 }

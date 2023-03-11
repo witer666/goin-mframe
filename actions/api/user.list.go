@@ -22,7 +22,7 @@ func NewActionUserList(c *gin.Context) *ActionUserList {
 func (action *ActionUserList) Invoke(c *gin.Context) {
 	pUser := page.Service_Page_Users{}
 	userName := ""
-	if _, ok := action.Params["uname"]; ok {
+	if _, ok := action.Params["uname"]; ok && utils.GetValueType(action.Params["uname"]) == "slice" {
 		userName = action.Params["uname"][0]
 	}
 	var userModel *[]dao.Dao_Users
@@ -31,5 +31,6 @@ func (action *ActionUserList) Invoke(c *gin.Context) {
 	} else {
 		userModel = pUser.GetUserList(0, 10, "user_name = ?", userName)
 	}
+
 	utils.ReturnJson(c, userModel, 0, "")
 }

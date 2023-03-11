@@ -22,12 +22,16 @@ type DB struct {
 }
 
 func (mdb *DB) Open() (err error) {
+	if mdb.Db != nil {
+		return nil
+	}
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local&timeout=%s", "root", "123456", "127.0.0.1", 3306, "test", "10s")
 	mdb.Db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		panic(err.Error())
 	}
+
 	return err
 }
 

@@ -42,5 +42,5 @@ func (app *App) RegisterRouter(r *gin.Engine, method string, uri string, action 
  *
  */
 func (app *App) Dispatch(r *gin.Engine) {
-	r.Run()
+	r.Run(APP_PORT)
 }
