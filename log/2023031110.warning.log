@@ -1,0 +1,1 @@
+{"File":"/Users/linux/golang/goin-mframe/models/service/data/users.go","Line":22,"conds":["username = ?","chenhongwei"],"err":"Error 1054 (42S22): Unknown column 'username' in 'where clause'","func":"github.com/gin-gonic/models/service/data.(*Service_Data_Users).GetUserList","level":"warning","msg":"","time":"2023-03-11T10:46:02+08:00"}
