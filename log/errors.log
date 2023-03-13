@@ -1,3 +1,10 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
+.com/gin-gonic/controllers.(*ControllerApi).Init.func2 (4 handlers)
+[GIN-debug] POST   /v1/api/user/update       --> github.com/gin-gonic/controllers.(*ControllerApi).Init.func3 (4 handlers)
+[GIN-debug] GET    /v1/api/user/view         --> github.com/gin-gonic/controllers.(*ControllerApi).Init.func4 (4 handlers)
+[GIN-debug] GET    /admin/index              --> github.com/gin-gonic/controllers.(*ControllerAdmin).Init.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080

@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"reflect"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -172,4 +173,32 @@ func GetValueType(value any) string {
  */
 func CurrentNumericDate() string {
 	return time.Now().Format("2006010215")
+}
+
+/**
+ *
+ * 转义特殊字符
+ *
+ * @author  linux_chen<linux_chen@163.com>
+ * @version 2023/03/07 23:19:35
+ * @param	val	string
+ * @return  string
+ *
+ */
+func Quote(val string) string {
+	return strings.ReplaceAll(val, "'", "\\'")
+}
+
+/**
+ *
+ * 反转特殊字符
+ *
+ * @author  linux_chen<linux_chen@163.com>
+ * @version 2023/03/07 23:19:35
+ * @param	val	string
+ * @return  string
+ *
+ */
+func UnQuote(val string) string {
+	return strings.ReplaceAll(val, "\\'", "'")
 }

@@ -9,7 +9,10 @@ import (
 )
 
 func main() {
-	r := gin.New()
+	r := gin.Default()
+
+	//请求数据安全效验中间件
+	r.Use(library.HandlerUseRequestParams())
 
 	//加载模板
 	r.LoadHTMLGlob("template/*")
@@ -19,7 +22,7 @@ func main() {
 
 	//gin日志
 	logFile, _ := os.OpenFile("log/errors.log", os.O_RDWR|os.O_CREATE, 0755)
-	gin.DefaultWriter = io.MultiWriter(logFile)
+	gin.DefaultWriter = io.MultiWriter(logFile, os.Stdout)
 
 	//启动服务
 	app := library.App{}
