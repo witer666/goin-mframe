@@ -1,6 +1,7 @@
 package library
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/actions"
@@ -46,6 +47,7 @@ func HandlerUseCustomRecovery(c *gin.Context, recovered any) {
 		"err": recovered,
 	}
 	log.Init(c).Error(fields)
-	utils.ReturnJson(c, "", http.StatusInternalServerError, "internal code error")
+	errmsg := fmt.Sprintf("%s", recovered)
+	utils.ReturnJson(c, "", http.StatusInternalServerError, errmsg)
 	c.Abort()
 }
