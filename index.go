@@ -9,10 +9,13 @@ import (
 )
 
 func main() {
-	r := gin.Default()
+	r := gin.New()
 
 	//请求数据安全效验中间件
 	r.Use(library.HandlerUseRequestParams())
+
+	//接收panic错误到日志文件
+	r.Use(gin.CustomRecovery(library.HandlerUseCustomRecovery))
 
 	//加载模板
 	r.LoadHTMLGlob("template/*")

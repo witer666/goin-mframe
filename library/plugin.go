@@ -1,8 +1,11 @@
 package library
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/actions"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/library/log"
 	"github.com/gin-gonic/utils"
 )
 
@@ -25,4 +28,24 @@ func HandlerUseRequestParams() gin.HandlerFunc {
 			}
 		}
 	}
+}
+
+/**
+ *
+ * 自定义错误恢复中间件
+ *
+ * @author  linux_chen<linux_chen@163.com>
+ * @version 2023/03/07 23:19:35
+ * @param	c gin.Context
+ * @param	recovered any
+ * @return 	void
+ *
+ */
+func HandlerUseCustomRecovery(c *gin.Context, recovered any) {
+	fields := map[string]interface{}{
+		"err": recovered,
+	}
+	log.Init(c).Error(fields)
+	utils.ReturnJson(c, "", http.StatusInternalServerError, "internal code error")
+	c.Abort()
 }

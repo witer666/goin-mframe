@@ -34,7 +34,7 @@ type GoinLog struct {
 func Init(c *gin.Context) *GoinLog {
 	glog := new(GoinLog)
 	log.SetFormatter(&log.JSONFormatter{})
-	log.SetLevel(log.DebugLevel)
+	log.SetLevel(log.ErrorLevel)
 	initFields := InitFields(c)
 	glog.Logger = log.WithFields(initFields)
 
