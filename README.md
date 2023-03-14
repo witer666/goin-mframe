@@ -20,4 +20,5 @@ goin-mframe是使用golang gin Web框架和gorm关系型数据库面向对象数
 - 3月11日提交框架日志类GoinLog。
 - 3月13日提交Dockerfile Docker容器化部署。
 - 3月13日提交请求数据安全效验（使用gin.Default().Use()中间件实现）
+- 3月14日提交自定义Recovery中间件将runtime错误写入GoinLog。
 ---
