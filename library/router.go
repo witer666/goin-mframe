@@ -47,7 +47,7 @@ func InitAppRouter(r *gin.Engine) {
 			_url = _urls[0]
 			_method = "GET"
 		} else {
-			_url = _urls[1]
+			_url = strings.Replace(k, _urls[0]+":", "", 1)
 			_method = _urls[0]
 		}
 		_app.RegisterRouter(r, _method, _url, vfunc)

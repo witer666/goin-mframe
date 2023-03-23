@@ -3,6 +3,7 @@ package library
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/actions"
 	"github.com/gin-gonic/gin"
@@ -22,6 +23,10 @@ import (
  */
 func HandlerUseRequestParams() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		//admin不处理application/json
+		if strings.Index(c.Request.RequestURI, "/admin/") == 0 {
+			return
+		}
 		reqParams := actions.HandlerRequestParams(c)
 		for _, value := range reqParams {
 			if len(value) == 1 && utils.GetValueType(value) == "slice" {

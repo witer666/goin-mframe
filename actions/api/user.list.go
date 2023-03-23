@@ -23,7 +23,7 @@ func (action *ActionUserList) Invoke(c *gin.Context) {
 	pUser := page.Service_Page_Users{}
 	userName := ""
 	if _, ok := action.Params["uname"]; ok && utils.GetValueType(action.Params["uname"]) == "slice" {
-		userName = action.Params["uname"][0]
+		userName = action.Params["uname"][1]
 	}
 	var userModel *[]dao.Dao_Users
 	if userName == "" {

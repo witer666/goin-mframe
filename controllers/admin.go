@@ -23,5 +23,13 @@ func (ctlAdmin *ControllerAdmin) Init() {
 			_actionAdminIndex := admin.ActionAdminIndex{}
 			_actionAdminIndex.Invoke(c)
 		},
+		"get:/admin/form": func(c *gin.Context) {
+			_actionAdminForm := admin.ActionAdminForm{}
+			_actionAdminForm.Invoke(c)
+		},
+		"post:/admin/post": func(c *gin.Context) {
+			_actionAdminPost := admin.ActionAdminPost{}
+			_actionAdminPost.Invoke(c)
+		},
 	}
 }
